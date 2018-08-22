@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC
+﻿<!DOCTYPE html PUBLIC
   "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
@@ -15,8 +15,11 @@
 				  not-supported-link-message="Click here to download file"></gc-pdfviewer>
     <div>
         <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
+        <script src="smap-shim.js"></script>
+        <script src="typedarray.js"></script>
+
         <script src="pdfviewer.min.js"></script>
-        
+
     </div>
     <gc-pdfviewer class="pdfviewer2" file="compressed.tracemonkey-pldi-09.pdf" width="150px" height="150px"></gc-pdfviewer>
     <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
