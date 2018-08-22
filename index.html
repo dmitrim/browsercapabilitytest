@@ -15,12 +15,14 @@
 				  not-supported-link-message="Click here to download file"></gc-pdfviewer>
     <div>
         <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
         <script src="smap-shim.js"></script>
         <script src="typedarray.js"></script>
-        <script src="set.js"></script>        
+        <script src="set.js"></script>
         <script src="pdfviewer.min.js"></script>
-        <script>if (!window.require) {
-    window.require = function () {}
+        <script>
+    if (!window.require) {
+                window.require = function () { }
             }</script>
 
     </div>
