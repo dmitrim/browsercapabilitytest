@@ -8,20 +8,26 @@
     <title>Document</title>
 </head>
 <body>
-    <gc-pdfviewer class="pdfviewer1" src="pdf.pdf" width="150px" height="150px"></gc-pdfviewer>
+	<gc-pdfviewer file="helloworld.pdf"></gc-pdfviewer>		
+	
+    <gc-pdfviewer file="pdf.pdf" class="pdfviewer1" width="150px" height="150px" 
+				  not-supported-message="Not supported by your browser"
+				  not-supported-link-message="see the file here!"></gc-pdfviewer>
+				  
     <div>
         <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
         <script src="browsercapabilitytest/pdfviewer.js"></script>
     </div>
-    <gc-pdfviewer class="pdfviewer2" src="compressed.tracemonkey-pldi-09.pdf" width="150px" height="150px"></gc-pdfviewer>
-    <gc-pdfviewer class="pdfviewer3" src="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
+    <gc-pdfviewer class="pdfviewer2" file="compressed.tracemonkey-pldi-09.pdf" width="150px" height="150px"></gc-pdfviewer>
+	
+    <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
     
     <script>
         document.querySelector(".pdfviewer2").addEventListener("documentload", function () {
-            alert("documentload, this.src=" + this.src);
+            alert("documentload, this.file=" + this.file);
         })
         document.querySelector(".pdfviewer2").addEventListener("pagerendered", function (pagenum) {
-            alert("pagerendered, this.src=" + this.src + ", page number: " + pagenum);
+            alert("pagerendered, this.file=" + this.file + ", page number: " + pagenum);
         })
         document.querySelector(".Apply").addEventListener("click", function () {
             var pageNumber = document.querySelector(".pageNumber").value;
@@ -29,6 +35,6 @@
             //
         });
 
-    </script>
+    </script>	
 </body>
 </html>
