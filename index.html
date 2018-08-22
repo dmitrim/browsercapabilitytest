@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC
   "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +10,14 @@
 </head>
 <body>
 	<gc-pdfviewer file="helloworld.pdf"></gc-pdfviewer>		
-	
     <gc-pdfviewer file="pdf.pdf" class="pdfviewer1" width="150px" height="150px" 
 				  not-supported-message="Not supported by your browser"
 				  not-supported-link-message="see the file here!"></gc-pdfviewer>
-				  
     <div>
         <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
-        <script src="browsercapabilitytest/pdfviewer.js"></script>
+        <script file="pdfviewer.js"></script>
     </div>
     <gc-pdfviewer class="pdfviewer2" file="compressed.tracemonkey-pldi-09.pdf" width="150px" height="150px"></gc-pdfviewer>
-	
     <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
     
     <script>
@@ -35,6 +33,6 @@
             //
         });
 
-    </script>	
+    </script>
 </body>
 </html>
