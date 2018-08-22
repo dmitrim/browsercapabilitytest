@@ -22,7 +22,7 @@
     <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
     
     <script>
-        document.querySelector(".pdfviewer2").addEventListener("documentload", function () {            
+        document.querySelector(".pdfviewer2").addEventListener("documentload", function (e) {            
             console.log("documentload, this.file =" + this.file);
             console.log(e);
         })
