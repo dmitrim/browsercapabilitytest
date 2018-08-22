@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC
+<!DOCTYPE html PUBLIC
   "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
@@ -12,20 +12,24 @@
 	<gc-pdfviewer file="helloworld.pdf"></gc-pdfviewer>		
     <gc-pdfviewer file="pdf.pdf" class="pdfviewer1" width="150px" height="150px" 
 				  not-supported-message="Not supported by your browser"
-				  not-supported-link-message="see the file here!"></gc-pdfviewer>
+				  not-supported-link-message="Click here to download file"></gc-pdfviewer>
     <div>
         <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
-        <script src="pdfviewer.js"></script>
+        <script src="pdfviewer.min.js"></script>
+        
     </div>
     <gc-pdfviewer class="pdfviewer2" file="compressed.tracemonkey-pldi-09.pdf" width="150px" height="150px"></gc-pdfviewer>
     <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
     
     <script>
-        document.querySelector(".pdfviewer2").addEventListener("documentload", function () {
-            alert("documentload, this.file=" + this.file);
+        document.querySelector(".pdfviewer2").addEventListener("documentload", function () {            
+            console.log("documentload, this.file =" + this.file);
+            console.log(e);
         })
-        document.querySelector(".pdfviewer2").addEventListener("pagerendered", function (pagenum) {
-            alert("pagerendered, this.file=" + this.file + ", page number: " + pagenum);
+        document.querySelector(".pdfviewer2").addEventListener("pagerendered", function (e) {
+            console.log("pagerendered");
+            console.log(e);
+            
         })
         document.querySelector(".Apply").addEventListener("click", function () {
             var pageNumber = document.querySelector(".pageNumber").value;
