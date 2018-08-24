@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC
+<!DOCTYPE html PUBLIC
   "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
@@ -10,42 +10,81 @@
 </head>
 <body>
 	<gc-pdfviewer file="helloworld.pdf"></gc-pdfviewer>		
-    <gc-pdfviewer file="pdf.pdf" class="pdfviewer1" width="150px" height="150px" 
+    <gc-pdfviewer file="pdf.pdf" class="pdfviewer1" width="500px" height="450px" 
 				  not-supported-message="Not supported by your browser"
 				  not-supported-link-message="Click here to download file"></gc-pdfviewer>
     <div>
         <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
-        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <script src="smap-shim.js"></script>
-        <script src="typedarray.js"></script>
-        <script src="set.js"></script>
-        <script src="MutationObserver.js"></script>
-        <script src="pdfviewer.min.js"></script>
+        <!--
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script src="smap-shim.js"></script>
+    <script src="typedarray.js"></script>
+    <script src="set.js"></script>
+    <script src="MutationObserver.js"></script>
+    -->
+    <!--
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-shim.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-sham.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://wzrd.in/standalone/es7-shim@latest"></script>
+    -->
+        <script language="javascript" type="text/javascript" src="dist/pdfviewer.min.js"></script>
+
         <script>
+            if (window.Promise) {
+
+                if (!window.Promise["catch"]) {
+                    if (window.Promise.prototype) {
+                        if (!window.Promise.prototype["catch"]) {
+                            console.log("Adding window.Promise.catch to Promise prototype ...")
+                            window.Promise.prototype["catch"] = function () { };
+                        }
+                    }
+                    if (!window.Promise["catch"]) {
+                        // should never go here
+                        console.log("Adding window.Promise.catch to Promise ...")
+                        window.Promise["catch"] = function () { };
+                    }
+                }
+
+            }
+
+            /*
             if (!window.require) {
                 window.require = function () { }
-            }</script>
+            }
+            */
+        </script>
 
     </div>
-    <gc-pdfviewer class="pdfviewer2" file="compressed.tracemonkey-pldi-09.pdf" width="150px" height="150px"></gc-pdfviewer>
+    <gc-pdfviewer class="pdfviewer2" file="compressed.tracemonkey-pldi-09.pdf"></gc-pdfviewer>
     <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
     
     <script>
-        document.querySelector(".pdfviewer2").addEventListener("documentload", function (e) {            
+        var pdfviewer = document.querySelector(".pdfviewer2");
+        console.log("pdfviewer.addEventListener=" + pdfviewer.attachEvent);
+        var addEvent = pdfviewer.attachEvent || pdfviewer.addEventListener;
+        
+        addEvent("documentload", function (e) {            
             console.log("documentload, this.file =" + this.file);
             console.log(e);
         })
-        document.querySelector(".pdfviewer2").addEventListener("pagerendered", function (e) {
+        addEvent("pagerendered", function (e) {
             console.log("pagerendered");
             console.log(e);
             
         })
-        document.querySelector(".Apply").addEventListener("click", function () {
+        var applyButton = document.querySelector(".Apply");
+        addEvent = applyButton.attachEvent || applyButton.addEventListener;
+        addEvent("click", function () {
             var pageNumber = document.querySelector(".pageNumber").value;
             document.querySelector(".pdfviewer2").pagenum = pageNumber;
             //
         });
-
+        
     </script>
 </body>
 </html>
