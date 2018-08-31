@@ -6,74 +6,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
-    <!--
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-    <script src="smap-shim.js"></script>
-    <script src="typedarray.js"></script>
-    <script src="set.js"></script>
-    <script src="MutationObserver.js"></script>
-    -->
-    <!--
-
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
-
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-shim.min.js"></script>
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-sham.min.js"></script>
-    <script language="javascript" type="text/javascript" src="https://wzrd.in/standalone/es7-shim@latest"></script>
-    -->
-
+    <title>PDF Viewer sample</title>    
 </head>
 <body>
-    <div id="logconsole"></div>
-    <script>
-
-    </script>
-    <div>
-        <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
-    </div>
-    <gc-pdfviewer class="pdfviewer2" width="500px" file="compressed.tracemonkey-pldi-09.pdf"></gc-pdfviewer>
-
-    <gc-pdfviewer file="helloworld.pdf"></gc-pdfviewer>
-
-    <gc-pdfviewer file="pdf.pdf" class="pdfviewer1" width="500px" height="450px"
-                  not-supported-message="Not supported by your browser"
-                  not-supported-link-message="Click here to download file"></gc-pdfviewer>
-
-    <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px"></gc-pdfviewer>
-    <!--
-    <link href="optional/grab-to-pan.js-master/grab-to-pan.css" rel="stylesheet" />
-    <script src="optional/grab-to-pan.js-master/grab-to-pan.js"></script>
-    -->
-    <script language="javascript" type="text/javascript" src="optional/ie8/hacks.js"></script>
-    <script language="javascript" type="text/javascript" src="dist/pdfviewer.min.js"></script>
-    <script>
-        var pdfviewer = document.querySelector(".pdfviewer2");
-
-        console.log("pdfviewer.addEventListener=" + pdfviewer.attachEvent);
-        var addEvent = pdfviewer.attachEvent ? "attachEvent" : "addEventListener";
-
-        pdfviewer[addEvent]("documentload", function (e) {
-            console.log("documentload, this.file =" + this.file + ", pagenum=" + this.pagenum);
-            console.log(e);
-        })
-        pdfviewer[addEvent]("pagerendered", function (e) {
-            console.log("pagerendered, pagenum=" + this.pagenum);
-            console.log(e);
-
-        })
-        var applyButton = document.querySelector(".Apply");
-
-        applyButton[addEvent]("click", function () {
-            console.log("applyButton click");
-            var pageNumber = document.querySelector(".pageNumber").value;
-            document.querySelector(".pdfviewer2").pagenum = pageNumber;
-        });
-
-    </script>
-    </div>
-    </div>
+    <gc-pdfviewer file="compressed.tracemonkey-pldi-09.pdf"></gc-pdfviewer>
+    <script language="javascript" type="text/javascript" src="dist/pdfviewer.js"></script>
 </body>
 </html>

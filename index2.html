@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    
+    <script language="javascript" type="text/javascript" src="optional/ie8/hacks.js"></script>
+        
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+    <script src="dist/poly/set.js"></script>
+    <script src="dist/poly/MutationObserver.js"></script>
+    <script src="dist/poly/smap-shim.js"></script>
+    <script src="dist/poly/custom-elements.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-shim.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-sham.min.js"></script>
+    <!--
+    <script src="dist/poly/mutationobserver.js"></script>
+    <script src="smap-shim.js"></script>
+    <script src="typedarray.js"></script>
+    <script src="set.js"></script>
+    <script src="MutationObserver.js"></script>
+    -->
+    <!--
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-shim.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-sham.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://wzrd.in/standalone/es7-shim@latest"></script>
+    -->
+</head>
+<body>
+    <div id="logconsole"></div>
+   
+    
+
+    <div>
+        <input type="number" class="pageNumber" value="1" /> <button class="Apply">Apply</button>
+    </div>
+    <gc-pdfviewer class="pdfviewer2" width="500px" file="compressed.tracemonkey-pldi-09.pdf"></gc-pdfviewer>
+
+    <gc-pdfviewer file="helloworld.pdf" zoom-buttons="hidden"></gc-pdfviewer>
+
+    <gc-pdfviewer file="pdf.pdf" class="pdfviewer1" width="500px" height="450px"
+                  zoom-buttons="hidden"></gc-pdfviewer>
+
+    <gc-pdfviewer class="pdfviewer3" file="html40.pdf" width="150px" height="150px" zoom-buttons="hidden"></gc-pdfviewer>
+
+    <link href="optional/grab-to-pan.js-master/grab-to-pan.css" rel="stylesheet" />
+    <script src="optional/grab-to-pan.js-master/grab-to-pan.js"></script>
+    <script>
+
+        var addEvent = document.attachEvent ? "attachEvent" : "addEventListener";
+
+        document[addEvent]("DOMContentLoaded", function () {
+
+            var pdfviewer = document.querySelector(".pdfviewer2");
+
+            console.log("pdfviewer.addEventListener=" + pdfviewer.attachEvent);
+            pdfviewer[addEvent]("documentload", function (e) {
+                console.log("documentload, this.file =" + this.file + ", pagenum=" + this.pagenum);
+                console.log(e);
+            })
+            pdfviewer[addEvent]("pagerendered", function (e) {
+                console.log("pagerendered, pagenum=" + this.pagenum);
+                console.log(e);
+
+            })
+            var applyButton = document.querySelector(".Apply");
+
+            applyButton[addEvent]("click", function () {
+                console.log("applyButton click");
+                var pageNumber = document.querySelector(".pageNumber").value;
+                document.querySelector(".pdfviewer2").pagenum = pageNumber;
+            });
+        });
+
+
+    </script>
+    <script language="javascript" type="text/javascript" src="dist/pdfviewer.js"></script>
+</body>
+</html>
