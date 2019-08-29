@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>GrapeCity Documents PDF Viewer Demo</title>
+    <script>
+        function loadPdfViewer(selector) {
+            GcPdfViewer.LicenseKey = 'GrapeCity-Internal-Use-Only,*.grapecity.com|gcbun.canadaeast.cloudapp.azure.com|*.grapecitydev.com|*.componentone.com,641447231117316#B0n2C6lTawg5ZwdmRrJndLJkMMBXOldHR7Qmd4VjY0JXSPlEV7UFew54KQNVbG5mUKxUYxR5TCRGarVXUulzKMNkYkZUU8NFZUZXZkRXNy86Yj5EcxAnUMVVYURWS9klMwp4RRZVbxAHS7NkMPBzdyUTW5BndJVUeYxGeGp4cJJ7RuZTSENmNDFkerYDTFFzaydnZC9UZz84cURnSRNjNsxGbhlVavclYppXRyMTNwBzark7K8V5K9k4QvlmQ5lmez3EWllGSz34bN34VIVlb5I6SWtGW9gzQzh4RWd4KutyQUFlQzQDcD96RYl4TjlkMM5md4J5MSZEai34KMJiOiMlIsISRyUzNzMDOiojIIJCLygTN6IDN9gDO0IicfJye&Qf35VfiIUWPFlI0IyQiwiIxYFIyV6dllmVmRGUjdkI0IiTis7W0ICZyBlIsICN5QDMyADIwMTNwkTMwIjI0ICdyNkIsISbvNmLl96b49WZu3Gct36YuoCLt36YuYXZklHdpNWZwFmcn9iKs46bj9SZyVneh9CcwFGZ53Gbj9CdzFWZhRWYuF6Yu8WdiN6Zs46bj9Se4l6YlBXYydmLqIiOiMXbEJCLiYTMzcTMxEzMycDN4EDN6IiOiQWSisnOiQkIsISP3cHUClDUzZUNR96U4RXTyI4M8sCVqBVcQdWS6kVRNlGUlhnWQ3mSvIXeKh6LQxUVRF5b7EVT7J6TwsydNtGTpBXZCRXaPN7UkxUVwgVYXdjauZWSTdVTiCjLr';
+            var viewer = new GcPdfViewer(selector, { renderInteractiveForms: true /*, documentListUrl: "/documentslist.json" */ });
+            //viewer.addDocumentListPanel();
+            viewer.addDefaultPanels();
+			viewer.open("js_api_reference.pdf");
+        }
+    </script>
+</head>
+<body onload="loadPdfViewer('#root')">
+<div id="root"></div>
+<script type="text/javascript" src="gcpdfviewer.js"></script></body>
+</html>
