@@ -1,0 +1,22 @@
+export declare const pdfSvgIcons: {
+    'save': JSX.Element;
+    'theme-change': JSX.Element;
+    'single-page': JSX.Element;
+    'continues-view': JSX.Element;
+    'view-mode': JSX.Element;
+    'print': JSX.Element;
+    'rotate': JSX.Element;
+    'open': JSX.Element;
+    'text-selection': JSX.Element;
+    'hide-annotations': JSX.Element;
+    'pan': JSX.Element;
+    'outline': JSX.Element;
+    'thumbnails': JSX.Element;
+    'articles': JSX.Element;
+    'attachments': JSX.Element;
+    'documents-list': JSX.Element;
+    'doc-properties': JSX.Element;
+    'about': JSX.Element;
+    'pdf-doc-title': JSX.Element;
+    'close-icon-sm': JSX.Element;
+};
