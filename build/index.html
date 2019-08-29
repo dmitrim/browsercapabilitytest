@@ -8,7 +8,7 @@
     <script>
         function loadPdfViewer(selector) {
             //GcPdfViewer.LicenseKey = 'your_license_key';
-            var viewer = new GcPdfViewer(selector, { renderInteractiveForms: true /*, documentListUrl: "/documentslist.json" */ });
+            var viewer = new GcPdfViewer(selector, { renderInteractiveForms: true, useOnlyCssZoom: true /*, documentListUrl: "/documentslist.json" */ });
             //viewer.addDocumentListPanel();
             viewer.addDefaultPanels();
 			viewer.open("FarPointWork.pdf");
