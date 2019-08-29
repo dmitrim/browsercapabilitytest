@@ -28,6 +28,11 @@ Product highlights:
 
 ## Release notes (see version.txt for more details)
 
+### 0.7.29
+- Fixed
+  - Text outside of the GCPdfViewer can not be selected. (DOC-1413)
+  - Navigation buttons: next page does not scroll up when the page is already visible. (DOC-1414)
+  
 ### 0.7.28
 - Fixed
   - When a form is posted, incorrect names are sent for combo and list boxes. (DOC-1388)
