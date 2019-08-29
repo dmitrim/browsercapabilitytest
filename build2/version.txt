@@ -1,0 +1,410 @@
+﻿GcPdfViewer [0.7.29]
+------------------------------
+Fixed:
+  ∙ Text outside of the GCPdfViewer can not be selected. (DOC-1413)
+  ∙ Navigation buttons: next page does not scroll up when the page is already visible. (DOC-1414)
+
+GcPdfViewer [0.7.28]
+------------------------------
+Fixed:
+  ∙ Unable to import radio button, ComboBox and ListBox form field values. (DOC-1388)
+
+GcPdfViewer [0.7.27]
+------------------------------
+Fixed:
+  ∙ Text alignment is not very well in document properties dialog. (DOC-1376)
+  ∙ Close button show abnormal on Edge browser. (DOC-1377)
+
+GcPdfViewer [0.7.25]
+------------------------------
+Added:
+  ∙ Document Properties dialog. (DOC-1339)
+
+GcPdfViewer [0.7.24]
+------------------------------
+Fixed:
+  ∙ Thumbnails show incorrectly for non-standard page sizes. (DOC-1346)
+  ∙ Incorrect page orientation in print preview in some cases. (DOC-1347)
+
+GcPdfViewer [0.7.23]
+------------------------------
+Fixed:
+  ∙ The zoom out button disappears in Internet explorer. (DOC-1333)
+  ∙ License icon does not show fully in Edge browser. (DOC-1302)
+  ∙ Radio button and checkbox cannot be selected in Edge browser. (DOC-1336)
+  ∙ FreeText callout lines are not shown when the annotation's appearance is specified by an appearance stream. (DOC-1317)
+Changed:
+  ∙ If a FreeText annotation has an appearance stream, but it includes text that requires an external CMap
+    that cannot be located, the text specified in the annotation is shown instead of the appearance stream. (DOC-1317)
+Added:
+  ∙ Added the ability to hide FreeText annotations using the 'Hide Annotations' button.
+  ∙ Added support for CID-keyed fonts with external CMap tables. (DOC-1328)
+    New options:
+      cMapUrl - in some cases, predefined character map files are needed to show Chinese, Japanese, or Korean text output.
+        The cMapUrl option specifies the URL of the folder where the CMap files are located. The default value is 'resources/bcmaps/'.
+        A CMap specifies the mapping from character codes to character selectors, it is used to extract Unicode text from a PDF document.
+        In most cases the CMaps are fully embedded in the PDF document, but sometimes a CMap in a PDF is specified by a PDF name object,
+        where this name identifies a predefined CMap that should be known to the PDF processor. The compressed predefined CMaps
+        that are included with GcPdfViewer are located in the 'resources/bcmaps/' folder, and have the .bin extension.
+      cMapPacked - if true, the viewer will look for the compressed version of the CMap files (with the extension '.bin'),
+        otherwise the viewer will look for unpacked CMap files without extension. The default value is true.
+
+GcPdfViewer [0.7.21]
+------------------------------
+Fixed:
+  ∙ Fixed the Zoom button in IE. (COREUI-14)
+  ∙ Fixed the Clear button in SearchPanel. (ARJ-650)
+  ∙ PDF content is not displayed correctly. (DOC-1317)
+Changed:
+  ∙ Zoom In/Out buttons behavior correction: The zoom step is now 10% for zoom factors below 100%,
+    and 25% for zoom factors above 100%. Also added 150% zoom value. (ARJ-606)
+
+GcPdfViewer [0.7.20]
+------------------------------
+Enhancements:
+  ∙ Added npmjs package. (DOC-1301)
+Corrections:
+  ∙ Fixed: Navigation toolbar buttons are not working properly when document is opened using Ctrl+O.
+
+GcPdfViewer [0.7.19]
+------------------------------
+Corrections:
+  ∙ license error message: fixed problem with icon, added line breaks. (DOC-1296)
+  ∙ Fixed: license error message shown twice in some cases. (DOC-1297)
+  ∙ Can not edit List box form control in GcPdfViewer. (DOC-1235)
+  ∙ 'Go To Last' button hidden by default in "Toggle FullScreen" view. (DOC-1232)
+  ∙ Search with "whole word" option result is not correct when it is a form data. (DOC-1233)
+  ∙ Highlight area is not correct in some scene. (DOC-1257)
+  ∙ Prompt "invalid license key" when I set evaluation 365 days key for GcPdfViewer. (DOC-1297)
+  ∙ The appearance of the watermark is not correct. (DOC-1295)
+  ∙ Script gcpdfviewer.vendor.js is no longer required
+
+GcPdfViewer [0.7.18]
+------------------------------
+Enhancements:
+  ∙ Licensing behavior updated. (DOC-1282)
+
+GcPdfViewer [0.7.17]
+------------------------------
+Corrections:
+  ∙ Fixed: 'Hide-annotations' does not hide Normal appearance stream of the redact annotation. (DOC-1283)
+
+GcPdfViewer [0.7.16]
+------------------------------
+Enhancements:
+  ∙ Support Normal/Rollover/Down appearance streams for REDACT annotations. (DOC-1283)
+
+GcPdfViewer [0.7.15]
+------------------------------
+Corrections:
+  ∙ GcPdfViewer does not work when scripts loaded from the head tag. (DOC-1286)
+
+GcPdfViewer [0.7.14]
+------------------------------
+Enhancements:
+  ∙ Added licensing:
+    Here's example how to create GcPdfViewer with product license:
+      <script>
+        // Add your license
+        GcPdfViewer.LicenseKey = 'xxx';
+        // Add your code
+        window.onload = function(){
+          const viewer = new GcPdfViewer("#viewer1", { file: 'helloworld.pdf' });
+          viewer.addDefaultPanels();
+        }
+      </script>
+    (DOC-1282)
+
+  ∙ Added ability to track previously opened PDF file,
+    Note, we are tracking opened file only when you open document using URI, not binary data.
+    Use restoreViewStateOnLoad option in order to restore previously opened file on next viewer load:
+    { restoreViewStateOnLoad: true } or { restoreViewStateOnLoad: { trackFile: true } }
+
+GcPdfViewer [0.7.13]
+------------------------------
+Corrections:
+  ∙ Sidebar animation during restore view state disabled
+  ∙ Document title toolbar item - hover style removed
+
+GcPdfViewer [0.7.12]
+------------------------------
+Corrections:
+  ∙ Restore previously opened sidebar correction: do not expand disabled sidebar panel on viewer load.
+  ∙ Search character * in PDF viewer the search result is not correct. (DOC-1026)
+  ∙ Correction: Search highlight is not fully visible when its located at the page's bottom edge
+  ∙ Fixed regression problem with double click selection (added in build 0.7.6)
+    Double-click time increased from 300ms to 500ms.
+
+GcPdfViewer [0.7.11]
+------------------------------
+Corrections:
+  ∙ Clear search highlight when search panel closed
+  ∙ Focus search query input when search panel opened
+  ∙ Restore previously opened sidebar panel on document load (see restoreViewStateOnLoad option).
+  ∙ There are no response when click "More Results" button after search text. (DOC-1178)
+
+GcPdfViewer [0.7.10]
+------------------------------
+Corrections:
+  ∙ popup title appearance correction: underline now hidden when popup content is empty
+  ∙ Fixed: The modification date (if it is available) is not displayed in the popup correctly
+  ∙ Z order of redact annotation changed after loaded by JS PDF Viewer. (DOC-1177)
+
+GcPdfViewer [0.7.9]
+------------------------------
+Enhancements:
+  ∙ New toolbar button: 'About'
+  ∙ Redact annotations. (DOC-1206)
+    New option:
+    hideAnnotationTypes - specifies annotation types which will be hidden
+                when the 'hide-annotations' button is checked
+      Default value:
+              ['Text', 'FreeText', 'Line', 'Square', 'Circle', 'Polygon', 'Polyline', 'Ink', 'Popup',
+               'Sound', 'Polygon', 'RadioButton', 'Checkbox', 'PushButton', 'Choice', 'TextWidget', 'Redact']
+      Possible values are:
+              ['Text',  'Link',  'FreeText',  'Line',  'Square',  'Circle',  'Polygon',  'Polyline',  'Ink',  'Popup',  'FileAttachment',
+               'Sound',  'ThreadBead',  'RadioButton',  'Checkbox',  'PushButton',  'Choice', 'TextWidget',  'Redact'] or 'All' or 'None'
+
+      Usage examples:
+        let options = { hideAnnotationTypes: 'All' };           // Hide all possible annotations.
+        let options = { hideAnnotationTypes: ['PushButton', 'Redact'] };  // Hide Push button and Redact annotations only.
+
+  ∙ New property:
+    version - returns current PDF Viewer version.
+
+  ∙ Added loading icon indicator for doc-title toolbar item.
+
+GcPdfViewer [0.7.8]
+------------------------------
+Enhancements:
+  ∙ DOC-1206
+    Added new toolbar button: Hide annotations, button key is 'hide-annotations',
+    use this button if you wish to preview original document without annotations,
+    this can be useful when you view redacted document.
+    List of annotation types on which affects 'Hide annotations' button:
+    Redact, Sound, Text, FreeText, Line, Square, Circle, Polyline, Ink, Polygon, RadioButton, Checkbox, PushButton, Choice.
+    List of annotation types on which 'Hide annotations' button does not have effect:
+    FileAttachment, Article thread bead, Link, Signature, Caret, Highlight, Underline, Stamp, Squiggly, StrikeOut, Popup.
+
+GcPdfViewer [0.7.7]
+------------------------------
+Enhancements:
+  ∙ Support Redact annotations. (DOC-1206)
+
+GcPdfViewer [0.7.6]
+------------------------------
+Enhancements:
+  ∙ Display shortcuts for tool bar buttons in their tool tip (when shortcut available)
+Corrections:
+  ∙ Text still selected after mouse click empty area. (DOC-1182)
+  ∙ Highlight area is not correct when search text contains "-". (DOC-1199)
+
+GcPdfViewer [0.7.5]
+------------------------------
+Corrections:
+  ∙ Fixed regression issue with selected text copy feature using Ctrl+C (added in build 0.7.3)
+
+GcPdfViewer [0.7.4]
+------------------------------
+Corrections:
+  ∙ Thumbnails panel performance with large pdf. (DOC-1231)
+
+GcPdfViewer [0.7.3]
+------------------------------
+Corrections:
+  ∙ restoreViewStateOnLoad option correction:
+    Now, zoom restored immediately without waiting document load.
+    Note, trackScale option should be set to true - restoreViewStateOnLoad: {trackScale: true}
+  ∙ Fixed: R/Shift+R shortcuts does not work after clicking on toolbar/sidebar
+
+GcPdfViewer [0.7.2]
+------------------------------
+Enhancements:
+  ∙ DOCXLS-1038 new method - applyOptions // Use this method in order to propagate changed options
+    Usage example:
+      var viewer = new GcPdfViewer(selector);
+      viewer.options.buttons = ['print', 'rotate'];
+      viewer.applyOptions();
+
+Corrections:
+  ∙ DOCXLS-1038 Unable to set viewer buttons using the 'buttons' option
+  ∙ DOCXLS-1039 "Open" method does not loads PDF file in IE11
+  ∙ Continuous View (fix spelling). (DOC-1179)
+  ∙ Appearance for interactive checkbox and radio buttons updated:
+    checkbox: cross replaced by check-mark;
+    radio button: now marker appearance is more accurate. (DOC-1169)
+
+GcPdfViewer [0.7.1]
+------------------------------
+Corrections:
+  ∙ Now, pdf viewer throws exception when trying to load large file(>1000 pages) without specified background worker (see workerSrc option). (DOC-1230)
+
+GcPdfViewer [0.7.0]
+------------------------------
+Corrections:
+  ∙ Large Linearized PDF hanging-ups. (DOC-1230)
+
+Changes for documentation:
+  ∙ option pdfjsWorkerSrc renamed to workerSrc
+
+GcPdfViewer [0.6.9]
+------------------------------
+Corrections:
+  ∙ Fixed: thumbnails is not shown in IE11.
+  ∙ Fix regression bug with thumbnails panel activation (added in build 0.6.7)
+
+GcPdfViewer [0.6.8]
+------------------------------
+Corrections:
+  ∙ Button boundary and background color is not visible. (DOC-1207)
+  ∙ It has performance issue when mouse wheel after load a pdf file which has 1000 pages. (DOC-1194)
+
+GcPdfViewer [0.6.7]
+------------------------------
+Enhancements:
+  ∙ Font icons replaced by svg icons for toolbar and sidebar
+
+Corrections:
+  ∙ Suggest to show imported file name in JS PDF Viewer site. (DOC-1191)
+    fixed problem with file name for download action:
+    use file name extracted from url when friendlyFileName option is not specified
+
+
+Changes for documentation:
+  ∙ toolbar button keys:
+    $mousetool renamed to $mousemode
+    textselection renamed to text-selection
+
+  ∙ materialdesignicons.css is no longer a required dependency
+
+  ∙ appearance of the pan tool icon changed
+
+GcPdfViewer [0.6.6]
+------------------------------
+Corrections:
+  ∙ Form data can not be searched. (DOC-1173)
+  ∙ Default toolbar buttons order changed:
+    ['open', '$navigation', '$split', 'textselection', 'pan', '$zoom', '$fullscreen', 'rotate', 'view-mode', 'theme-change', 'print', 'save', 'doc-title']
+
+GcPdfViewer [0.6.5]
+------------------------------
+Enhancements:
+  ∙ restoreViewStateOnLoad option: added ability to track theme
+Corrections:
+  ∙ Form fields not editable on loading PDF acroform in IE/IE Edge. (DOC-1184)
+  ∙ ReportListPanel renamed to DocumentListPanel
+  ∙ Can not see the choice of list box in print preview clearly. (DOC-1170)
+  ∙ Extra outline when text widget annotation is focused removed. (DOC-1171)
+  ∙ Preparing document for printing" dialog invoked by "Ctrl + P" hotkey is different from which invoked by push "Print Document" button in the toolbar. (DOC-1181)
+  ∙ Can not quite "Loading" state after cancel input password of the pdf file. (DOC-1198)
+  ∙ "Ctrl + P" hot-key can not take effect if push "Print Document" and cancel print before. (DOC-1185)
+  ∙ Text still selected after mouse click empty area in the page. (DOC-1182)
+  ∙ Password value show after load pdf which has text field that set password property to true. (DOC-1186)
+  ∙ Click outline node has no response which action is navigate to a web site. (DOC-1187)
+  ∙ Always show "Continuous View" tool tip no matter it is in single page view mode or continuous view mode. (DOC-1179)
+  ∙ Some form data lost after loaded by JS PDF viewer. (DOC-1169)
+  ∙ The search dialog is replaced by Search Panel in sidebar. (DOC-1180)
+  ∙ Can not select text in forms on IE browser. (DOC-1202)
+  ∙ Text style is not correct in search result. (DOC-1201)
+  ∙ Can not see attachments after load attach pdf file which has attachments files. (DOC-1188)
+  ∙ Can not go to destination of the outline node correctly. (DOC-1193)
+  ∙ Highlight area is not correct when search text contains "-". (DOC-1199)
+  ∙ Highlight area is not correct in certain scene. (DOC-1200)
+  ∙ Page Size is not correct when print. (DOC-1192)
+
+Enhancements:
+  new options:
+    ∙ documentListUrl - Url to document list service used by DocumentListPanel
+              The service should return json string with available documents array, e.g.: ["pdf1.pdf", "pdf2.pdf"]
+              ASP .NET service back-end action sample :
+                  [HttpGet("documents")]
+                  public ActionResult Documents()
+                  {
+                    var doucmentsFolder = new System.IO.DirectoryInfo("pdfdocs");
+                    var files = from file in doucmentsFolder.EnumerateFiles("*.pdf") select file.Name;
+                    return new ObjectResult(files.ToArray());
+                  }
+
+
+GcPdfViewer [0.6.4] 2019/05/13
+------------------------------
+Enhancements:
+  ∙ Page title will now be shown under thumbnail.
+  ∙ New toolbar buttons: text selection/pan
+  ∙ Current article thread indication
+  ∙ pdf.js updated to latest version:
+    ∙ Added CaretAnnotation support
+    ∙ SVG renderer enhanced (see renderer option)
+    ∙ Show modification date for annotation pop-ups if it is available and can be parsed correctly (date string should be in ISO 8601 standard)
+  ∙ GcPdfViewer options changes:
+    new options:
+      ∙ theme - Use this option to change default viewer theme.
+        Usage example:
+        var viewer = new GcPdfViewer(selector, { renderInteractiveForms: true, theme: 'themes/light-blue' });
+      ∙ restoreViewStateOnLoad - Track viewer state changes, save state to local storage and restore on first load.
+                Set this option to false if you wish to disable viewer state changes tracking.
+  ∙ GcPdfViewer API changes:
+    new methods:
+      setTheme - use this method to change active theme.
+    new properties:
+      rotation - number, use this property to get/set current document rotation in degrees.
+    new events:
+      onError - indicates error event.
+        Event arguments:
+          { message: string, source: GcPdfViewer, type: 'open' | string, exception?: any }
+        Usage example:
+          var viewer = new GcPdfViewer("#root", { keepFileData: true });
+          viewer.onError.register(handleError);
+          function handleError(eventArgs) {
+            if (eventArgs.message.indexOf("Invalid PDF structure") !== -1) {
+              var message = eventArgs.message;
+              var fileData = eventArgs.source.fileData;
+              if (fileData) {
+                message = new TextDecoder('utf-8').decode(fileData);
+              }
+              eventArgs.source.reportError({ message: message, severity: "warn" });
+            }
+          }
+
+Corrections:
+  ∙ Thread beads should be hidden during printing. (DOC-1163)
+  ∙ Page number is not correct in the toolbar when read as article thread mode. (DOC-1164)
+  ∙ (IE11/Edge) Fixed problem with article threads. (DOC-1167)
+  ∙ Don't draw border when color is not specified even if style and width specified. (DOC-1172)
+  ∙ Can not input data in form control under IE and edge browser. (DOC-1176)
+  ∙ Can not input data in form control when select pan tool in the toolbar. (DOC-1166)
+  ∙ Do not jump to other page when rotate page. (DOC-1165)
+  ∙ Fixed: S, H keyboard shortcuts does not update toolbar.
+  ∙ Fixed: Open SearchPanel using Ctrl+F.
+  ∙ Fixed problem with thumbnails title when document contains page labels
+  ∙ Fixed problem with externalLinkTarget option.
+  ∙ Document title loading text correction - show file name instead of full URL.
+  ∙ Article threads: by default article title should be empty
+  ∙ Fixed problem with article threads navigation when one page contains more than one overlapped beads from different articles.
+  ∙ Added error handling for Reports List fetch.
+
+
+GcPdfViewer [0.6.3] 2019/04/02
+------------------------------
+Enhancements:
+  ∙ Added new method for GcPdfViewer class: addDefaultPanels // Add default set of sidebar panels with default order.
+    Usage example:
+    const viewer = new GcPdfViewer("#viewer1", { file: 'file1.pdf' });
+    viewer.addDefaultPanels();
+  ∙ Pages rendering priority updated:
+     navigated page takes priority over other pages, even when this page is less visible comparing to others
+  ∙ Zoom using two finger gesture for mobile devices
+
+Corrections:
+  ∙ Fixed several IE 11 issues.
+  ∙ Fixed problem with context menu for selected text.
+  ∙ Behavior for sidebar buttons state updated.
+  ∙ Behavior of the canvas selection for paragraph corner corrected.
+  ∙ Fixed exception when another document loaded
+
+GcPdfViewer [0.6.2] 2019/04/22
+------------------------------
+Corrections:
+  ∙ Caret behavior for Ctrl+Home, Ctrl+End keys updated.
+
+GcPdfViewer [0.6.1] 2019/04/22 - initial version.
