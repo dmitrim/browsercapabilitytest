@@ -4026,13 +4026,24 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  touch-action: none; }
+
+/* Edge: FIX svg icons for compact toolbar  (DOC-1398 [GcPDFViwer] The icon button in navigation panel don't fully display in edge browser)
+   TODO: submit bug for js-viewer-core.
+*/
+@supports (-ms-ime-align: auto) {
+  .gc-btn.gc-size-sm .gc-btn__icon > svg {
+    width: 24px;
+    height: 24px; } }
 
 .gc-viewer-host {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  touch-action: none;
+  -webkit-touch-callout: none; }
 
 /* Document title toolbar item */
 .gc-doc-title-outer button.gc-btn--with-icon {
@@ -4434,9 +4445,13 @@ html, body {
       display: inherit;
       min-width: inherit;
       width: inherit;
-      height: 164px;
+      height: 170px;
       /* fix for DOC-1346 */
-      padding: 0; }
+      overflow: hidden;
+      padding: 0;
+      clear: both;
+      touch-action: none;
+      -webkit-touch-callout: none; }
     .gc-pdfthumbnails-outer .gc-pdfthumbnails-inner .thumbnail {
       float: left;
       border: 1px solid #505153;

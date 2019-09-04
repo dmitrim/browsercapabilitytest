@@ -29,18 +29,23 @@ Product highlights:
 ## Release notes (see version.txt for more details)
 
 ### 0.7.29
+
 - Fixed
-  - Text outside of the GCPdfViewer can not be selected. (DOC-1413)
-  - Navigation buttons: next page does not scroll up when the page is already visible. (DOC-1414)
-  
+  - Text outside of the document cannot be selected. (DOC-1413)
+  - Next page button does not scroll to the page if part of it is already visible. (DOC-1414)
+  - The icon button in navigation panel don't fully display in edge browser. (DOC-1398)
+  - (iOS) Document content disappears when changing zoom. (DOC-1408)
+  - When a form is posted, incorrect values are sent for some radio buttons. (DOC-1388)
+
 ### 0.7.28
+
 - Fixed
   - When a form is posted, incorrect names are sent for combo and list boxes. (DOC-1388)
 
 ### 0.7.27
 
 - Added
-  - Document Properties dialog (including fonts). (DOC-1339)
+  - Document properties and fonts dialog (toolbar button name 'doc-properties'). (DOC-1339)
 
 ### 0.7.24
 
